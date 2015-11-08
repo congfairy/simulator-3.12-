@@ -7,7 +7,7 @@
 The main goal of developing the utility is to using the data got from LSST to simulator the storage system ,changing the development file to see which parameter affects the  performance of the storage system most and then we can optimize the storage system of LSST.
 
 ### How to use
-*  Download and install simgrid as:http://simgrid.gforge.inria.fr/simgrid/3.12/doc/install.html
+*  Download and install simgrid version 3.12  as:http://simgrid.gforge.inria.fr/simgrid/3.12/doc/install.html
 *  Use configure.sh to produce configuration files(filename_deployment.xml,filename_action_trace.txt,storage_content.txt,filename_csvtime.txt) with the command:./configure.sh filename.csv
 *  17745.csv is a sample trace file which you can use to test your simulator.
 *  Compile the program with the command "make"
