@@ -12,28 +12,26 @@ The main goal of developing the utility is to using the data got from LSST to si
 		2  Use configure.sh to produce configuration files(filename_deployment.xml,filename_action_trace.txt,storage_content.txt,filename_csvtime.txt) with the command:./configure.sh filename.csv
 		3  Compile the program with the command "make"
 		4  Run the simulator with the command:./command_aciton.sh 30_100_120_200
-### some explanation of command:
-*  17745.csv is a sample trace file which you can use to test your simulator.
+### Explanation of command and the files:
 *  command_action.sh is a shell script with the command to run the simulator which really works with some action with the trace file:lsst-demo-v10.1-ubuntu-v14.04-cluefs.csv 
-   command_sample_action.sh is a shell script with the command to run the simulator which really works with some action with the trace file:17745.csv 
-   command_sample_sleep.sh is a shell script with the command to run the simulator with sleeping function for the trace file:17745.csv 
    command_sleep.sh is a shell script with the command to run the simulator with sleeping function for the trace file:lsst-demo-v10.1-ubuntu-v14.04-cluefs.csv
 * The format of directory 30_100_120_200 is Write-bandwidth(slow)_Read-bandwidth(slow)_Write-bandwidth(fast)_Read-bandwidth(fast).In the directory,there  is the platform.xml which correspond to the parameters.
 * When you want to run the program , use the command:
  e.g: ./command_action.sh 30_100_120_200
 Then you will find the result: logaction file in the directory 30_100_120_200.You can check the log and find something useful.
 * When you want to draw pictures of the executing time of different platform .You can run ./gettime.sh to get the file gettime.txt which includes the platform information and the executing time ,then you run: python script.py to get the picture in the images directory,thirdly run: display images/plot1.png to show the picture.To make it clear the steps are:
-   1:./gettime.sh
-   2:python script.py
-   3:display images/plot1.png
+		1:./gettime.sh
+		2:python script.py
+		3:display images/plot1.png
 * When you want to get the time of all the read,write,compute action during the executing,you can run rwc.sh to get te rwc.log which includes the total time of read,write and compute action.
-* When you want to compare the start and end time of the origin time in the trace file and the time you got in the log file after executing of every process to make sure your simulator works well.you can run ./comparetime.sh tracefilename_cvstime.xml platformfolder/logaction_logtime.xml to get the comparetime.txt file which includes the difference of the start and end time of every process.
+* When you want to compare the start and end time of the origin time in the trace file and the time you got in the log file after executing of every process to make sure your simulator works well.you can run:
+		 ./comparetime.sh tracefilename_cvstime.xml platformfolder/logaction_logtime.xml 
+to get the comparetime.txt file which includes the difference of the start and end time of every process.
   for example: ./comparetime.sh cluefs-centos7-lsst_stack_demo-11.0_cvstime.xml 30_100_120_200/logaction_logtime.xml 
 
-### Explanation of the command and the files
-for example: in the command_action.sh file ,there is the following command
+* in the command_action.sh file ,there is the following command
 :./extracttrace --log=replay.thres:verbose --cfg=surf/precision:1e-9 $1/one_host_one_disk.xml lsst-demo-v10.1-ubuntu-v14.04-cluefs_deployment.xml lsst-demo-v10.1-ubuntu-v14.04-cluefs_action_trace.txt action >& $1/logaction
- * some explanation of the extracttrace.c,I fulfill the simread function with the first 4096 block store in the fast disk and others (the data)store on the slow disk,and the simwrite function is that all the data are wirte to the slow disk
+* some explanation of the extracttrace.c,I fulfill the simread function with the first 4096 block store in the fast disk and others (the data)store on the slow disk,and the simwrite function is that all the data are write to the slow disk
  * platform.xml:In order to run any simulation, SimGrid must be provided with three things: something to run (i.e., your code), a description of the platform on which you want to simulate your application and lastly information about the deployment process.http://simgrid.gforge.inria.fr/simgrid/3.12/doc/platform.html
  
  * deployment.xml:When using SimGrid, you basically need your user code, a platform description, and something allowing to map your (simulated) process on your (simulated) platform. This is what deployment file is all about.So deployment file just consists of saying which process runs where and which arguments it should take as input.http://simgrid.gforge.inria.fr/simgrid/3.12/doc/deployment.html
