@@ -8,11 +8,11 @@ The main goal of developing the utility is to using the data got from LSST to si
 
 ### How to use
 
-1  Download and install simgrid version 3.12  as:http://simgrid.gforge.inria.fr/simgrid/3.12/doc/install.html
-2  Use configure.sh to produce configuration files(filename_deployment.xml,filename_action_trace.txt,storage_content.txt,filename_csvtime.txt) with the command:./configure.sh filename.csv
-3  Compile the program with the command "make"
-4  Run the simulator with the command:./command_aciton.sh 30_100_120_200
-some explanation:
+		1  Download and install simgrid version 3.12  as:http://simgrid.gforge.inria.fr/simgrid/3.12/doc/install.html
+		2  Use configure.sh to produce configuration files(filename_deployment.xml,filename_action_trace.txt,storage_content.txt,filename_csvtime.txt) with the command:./configure.sh filename.csv
+		3  Compile the program with the command "make"
+		4  Run the simulator with the command:./command_aciton.sh 30_100_120_200
+### some explanation of command:
 *  17745.csv is a sample trace file which you can use to test your simulator.
 *  command_action.sh is a shell script with the command to run the simulator which really works with some action with the trace file:lsst-demo-v10.1-ubuntu-v14.04-cluefs.csv 
    command_sample_action.sh is a shell script with the command to run the simulator which really works with some action with the trace file:17745.csv 
