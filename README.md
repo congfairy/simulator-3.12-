@@ -7,10 +7,13 @@
 The main goal of developing the utility is to using the data got from LSST to simulator the storage system ,changing the development file to see which parameter affects the  performance of the storage system most and then we can optimize the storage system of LSST.
 
 ### How to use
-*  Download and install simgrid version 3.12  as:http://simgrid.gforge.inria.fr/simgrid/3.12/doc/install.html
-*  Use configure.sh to produce configuration files(filename_deployment.xml,filename_action_trace.txt,storage_content.txt,filename_csvtime.txt) with the command:./configure.sh filename.csv
+
+1  Download and install simgrid version 3.12  as:http://simgrid.gforge.inria.fr/simgrid/3.12/doc/install.html
+2  Use configure.sh to produce configuration files(filename_deployment.xml,filename_action_trace.txt,storage_content.txt,filename_csvtime.txt) with the command:./configure.sh filename.csv
+3  Compile the program with the command "make"
+4  Run the simulator with the command:./command_aciton.sh 30_100_120_200
+some explanation:
 *  17745.csv is a sample trace file which you can use to test your simulator.
-*  Compile the program with the command "make"
 *  command_action.sh is a shell script with the command to run the simulator which really works with some action with the trace file:lsst-demo-v10.1-ubuntu-v14.04-cluefs.csv 
    command_sample_action.sh is a shell script with the command to run the simulator which really works with some action with the trace file:17745.csv 
    command_sample_sleep.sh is a shell script with the command to run the simulator with sleeping function for the trace file:17745.csv 
@@ -18,7 +21,7 @@ The main goal of developing the utility is to using the data got from LSST to si
 * The format of directory 30_100_120_200 is Write-bandwidth(slow)_Read-bandwidth(slow)_Write-bandwidth(fast)_Read-bandwidth(fast).In the directory,there  is the platform.xml which correspond to the parameters.
 * When you want to run the program , use the command:
  e.g: ./command_action.sh 30_100_120_200
-Then you will find the result: logaction file in the directory 30_100_120_200.Then you can check the log and find something useful.
+Then you will find the result: logaction file in the directory 30_100_120_200.You can check the log and find something useful.
 * When you want to draw pictures of the executing time of different platform .You can run ./gettime.sh to get the file gettime.txt which includes the platform information and the executing time ,then you run: python script.py to get the picture in the images directory,thirdly run: display images/plot1.png to show the picture.To make it clear the steps are:
    1:./gettime.sh
    2:python script.py

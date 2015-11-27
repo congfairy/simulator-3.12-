@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
-#include "simgrid/msg.h"            /* Yeah! If you want to use msg, you need to include msg/msg.h */
+#include "simgrid/msg.h"            
 #include <xbt/replay.h>
 /* Create a log channel to have nice outputs. */
 #include "xbt.h"

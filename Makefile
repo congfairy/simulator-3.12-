@@ -1,4 +1,4 @@
-SIMGRID_DIR=/home/congfairy/simgrid-3.12/SimGrid-3.12
+SIMGRID_DIR=/home/congfairy/SimGrid-3.12
 CC = gcc -g
 CFLAGS = -I$(SIMGRID_DIR)/include
 LIBS = -L$(SIMGRID_DIR)/lib/ -lm -lsimgrid
