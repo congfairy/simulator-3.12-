@@ -44,6 +44,7 @@ Then you will find the result: logaction file in the directory 30_100_120_200.Yo
 to get the comparetime.txt file which includes the difference of the start and end time of every process.
   for example: ./comparetime.sh cluefs-centos7-lsst_stack_demo-11.0_cvstime.xml 30_100_120_200/logaction_logtime.xml 
 * some explanation of the extracttrace.c,I fulfill the simread function with the first 4096 block store in the fast disk and others (the data)store on the slow disk,and the simwrite function is that all the data are write to the slow disk
+
 ### verify the simulator
 * 1.When you use the command :./configure.sh filename.csv
    It will produce the file filename_csvtime.xml which shows the start and end time of every process according to the .csv trace file.
